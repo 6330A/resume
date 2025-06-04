@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>myresume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- html2pdf.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        #download {
+            width: 794px;
+        }
+
+        #resume-content {
+            width: 794px;
+            min-height: 1123px;
+            background: #fff;
+            box-shadow: 0 1px 8px rgba(48, 15, 15, 0.5);
+            padding: 26px 26px;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            #resume-content {
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+                width: 794px;
+                min-height: 1123px;
+                padding: 26px 26px;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="download" class="mx-auto mt-2 mb-2 no-print flex justify-end">
+        <button id="download-pdf" class="text-blue-700 text-sm py-0.1 px-2">
+            download
+        </button>
+    </div>
+    <div id="resume-content" class="mx-auto">
+        <div class="flex justify-between items-center">
+            <div class="flex-[0.6]">
+                <div class="text-2xl font-bold mb-2">刘章阳</div>
+                <div class="grid grid-cols-2 gap-x-4 gap-y-1 text-gray-700 text-sm mb-2">
+                    <div class="flex items-center">
+                        <img src="./assets/icon-phone.svg" alt="phone" class="w-4 h-4 mr-2 inline-block align-middle">
+                        15072376330
+                    </div>
+                    <div class="flex items-center">
+                        <img src="./assets/icon-email.svg" alt="email" class="w-4 h-4 mr-2 inline-block align-middle">
+                        nenu_lzy@qq.com
+                    </div>
+                    <div class="flex items-center">
+                        <img src="./assets/icon-wechat.svg" alt="qq" class="w-4 h-4 mr-2 inline-block align-middle">
+                        oi_mango
+                    </div>
+                    <div class="flex items-center">
+                        <img src="./assets/icon-github.svg" alt="github" class="w-4 h-4 mr-2 inline-block align-middle">
+                        <a href="https://github.com/6330A" class="plain-link">https://github.com/6330A</a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-24 h-24 flex-shrink-0 flex items-center justify-center">
+                <img id="avatar" class="w-24 h-24 rounded-full object-cover" alt="头像">
+            </div>
+        </div>
+        <div>
+            <div class="text-lg font-bold">教育经历</div>
+            <hr class="mt-2 mb-2 border-gray-400">
+            <div class="mb-2">
+                <div class="flex justify-between text-sm">
+                    <span class="font-semibold">东北师范大学</span>
+                    <span>2022.09 - 2025.06</span>
+                </div>
+                <div class="flex text-gray-700 text-sm mb-1">
+                    <span class="flex-[2]">计算机技术</span>
+                    <span class="flex-[1]">硕士</span>
+                    <span class="flex-[8]">信息科学与技术学院</span>
+                </div>
+            </div>
+            <div>
+                <div class="flex justify-between text-sm">
+                    <span class="font-semibold">湖北经济学院</span>
+                    <span>2015.09 - 2019.06</span>
+                </div>
+                <div class="flex text-gray-700 text-sm mb-1">
+                    <span class="flex-[2]">工程管理</span>
+                    <span class="flex-[1]">本科</span>
+                    <span class="flex-[8]">物流与工程管理学院</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="text-lg font-bold">工作经历</div>
+            <hr class="mt-2 mb-2 border-gray-400">
+            <div class="mb-2">
+                <div class="flex justify-between text-sm">
+                    <span class="font-semibold">武汉市汉阳市政建设集团有限公司</span>
+                    <span>2019.07 - 2020.06</span>
+                </div>
+                <div class="text-gray-700 text-sm mb-1">
+                    <span>完成项目前期投标工作，包括资格预审、技术方案撰写、编制标书等；</span>
+                    <br>
+                    <span>负责项目跟踪以及预结算，每月成本分析等问题。</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="text-lg font-bold">项目经历</div>
+            <hr class="mt-2 mb-2 border-gray-400">
+            <div class="mb-2">
+                <div class="flex justify-between text-sm">
+                    <span class="font-semibold">基于姿态和关节感知的跌倒检测研究与实现</span>
+                    <span>2024.04 - 2025.03</span>
+                </div>
+                <div class="text-gray-700 text-sm mb-1">
+                    <span>涉及技术：深度学习、姿态估计、Python、Pytorch、OpenPose</span>
+                    <br>
+                    <span>项目描述：开发基于计算机视觉的跌倒检测系统，实时捕捉并分析人体姿态，精准识别跌倒事件。</span>
+                    <br>
+                    <span
+                        style="padding-left: 5em; text-indent: -5em; display: inline-block; text-align: justify;">负责内容：采用现有的姿态估计器提取视频人物的关键点信息，对数据集预处理；搭建并优化模型，进行训练与调优；在测试集上进行验证与评估，提升系统的准确率与实时性。</span>
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="flex justify-between text-sm">
+                    <span class="font-semibold">基于深度学习的密集人脸检测系统</span>
+                    <span>2022.12 - 2023.02</span>
+                </div>
+                <div class="text-gray-700 text-sm mb-1">
+                    <span>涉及技术：深度学习、Python、Pytorch、PyQt5、OpenCV</span>
+                    <br>
+                    <span>项目描述：该项目利用图像处理和深度学习算法，旨在复杂的人群中，快速、精准地检测出人脸并定位。</span>
+                    <br>
+                    <span
+                        style="padding-left: 5em; text-indent: -5em; display: inline-block; text-align: justify;">负责内容：图形用户界面的设计和开发，提供模型的调用接口，成功将模型部署到应用中，实现了端到端的模型集成，保证模型在应用中平稳运行、快速响应并将结果实时显示。</span>
+                </div>
+            </div>
+            <div class="mb-2">
+                <div class="flex justify-between text-sm">
+                    <span class="font-semibold">云盘</span>
+                    <span>2024.02 - 2024.03</span>
+                </div>
+                <div class="text-gray-700 text-sm mb-1">
+                    <span>涉及技术：Spring Boot、MyBatis、MySQL、Vue 3、Element Plus</span>
+                    <br>
+                    <span>项目描述：一个网盘的云存储平台，采用前后端分离架构。<a
+                            href="https://github.com/6330A/yunpan">https://github.com/6330A/yunpan</a></span>
+                    <br>
+                    <span
+                        style="padding-left: 5em; text-indent: -5em; display: inline-block; text-align: justify;">负责内容：使用<strong>JWT</strong>和<strong>Redis</strong>实现用户注册、登录功能，使用<strong>ThreadLocal</strong>存储用户登录信息；<br>使用<strong>MultipartFile</strong>接收客户端通过HTTP请求上传的文件分片，并完成文件合并；<br>使用Blob类型处理文件，使用<strong>spark-md5</strong>计算文件指纹，完成大文件<strong>分片上传</strong>、<strong>秒传</strong>和<strong>断点续传</strong>；<br>前端采用Pinia进行状态管理，并在上传文件过程中实时展示上传进度条以及网盘占用空间。</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="text-lg font-bold">专业技能</div>
+            <hr class="mt-2 mb-2 border-gray-400">
+            <div class="text-gray-700 text-sm mb-1">
+                <span>熟悉数据结构和常用算法，如栈、队列、树、二分查找、排序、DFS、BFS等； </span>
+                <br>
+                <span>熟悉Java基础，常用集合和Stream的使用，熟悉Spring框架相关知识，如IoC、AOP、Bean生命周期等;</span>
+                <br>
+                <span>熟悉Python、C语言和MySQL，掌握常用SQL语句的编写；</span>
+                <br>
+                <span>了解JUC，常用设计模式相关知识；</span>
+                <br>
+                <span>了解HTML、CSS、JavaScript和Vue 3、Element Plus前端框架；</span>
+                <br>
+                <span>掌握Git、Linux命令的基本使用； </span>
+                <br>
+                <span>英语六级，能够熟练阅读英文文档；熟悉MarkDown语法，熟练使用Office等办公软件。 </span>
+            </div>
+        </div>
+        <div>
+            <div class="text-lg font-bold">个人荣誉</div>
+            <hr class="mt-2 mb-2 border-gray-400">
+            <div class="flex justify-between text-gray-700 text-sm mb-1">
+                <span>二等奖学金</span>
+                <span>2022、2023、2024</span>
+            </div>
+            <div class="flex justify-between text-gray-700 text-sm mb-1">
+                <span>东师杯乒乓球赛男子单打第八名</span>
+                <span>2023</span>
+            </div>
+            <div class="flex justify-between text-gray-700 text-sm mb-1">
+                <span>个人笔记站点 <a href="https://6330a.github.io/noteweb/">https://6330a.github.io/noteweb/</a></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        const avatar = document.getElementById('avatar');
+        fetch('./avatar.json')
+            .then(response => response.json())
+            .then(data => {
+                avatar.src = data.avatar;
+            });
+        document.getElementById('download-pdf').onclick = function () {
+            const element = document.getElementById('resume-content');
+            html2pdf().set({
+                margin: 0,
+                filename: '东北师范大学-刘章阳.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'px', format: [794, 1123], orientation: 'portrait' }
+            }).from(element).save();
+        }
+    </script>
+</body>
+
+</html>
